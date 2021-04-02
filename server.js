@@ -8,8 +8,7 @@ const wineRoutes = require('./routes/wineRoutes')
 
 app.use(express.json())
 
-
-
+app.use('/wines', wineRoutes)
 
 app.get('/', (req, res) => {
     res.send('Greetings Earthling')
