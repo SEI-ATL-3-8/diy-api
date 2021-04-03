@@ -5,8 +5,10 @@ const rowdy = require('rowdy-logger');
 const models = require('./models')
 const routesReport = rowdy.begin(app)
 const wineRoutes = require('./routes/wineRoutes')
+const cors = require('cors')
 
 app.use(express.json())
+app.use(cors())
 
 app.use('/wines', wineRoutes)
 
