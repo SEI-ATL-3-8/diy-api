@@ -5,7 +5,7 @@ const bookController = {}
 bookController.getEm = async (req,res) => {
     try {
         let books = await models.book.findAll()
-        res.json({books})
+        res.json(books)
     } catch (error) {
         res.json({error})
     }
@@ -17,7 +17,7 @@ bookController.find = async (req,res) => {
                 id: req.params.id
             }
         })
-        res.json({book})
+        res.json(book)
     } catch (error){
         res.json({error})
     }
@@ -32,7 +32,7 @@ bookController.create = async (req,res) => {
             image: req.body.image
     
         })
-        res.json({newBook})
+        res.json(newBook)
     } catch (error) {
         res.json({error})
     }
@@ -46,7 +46,7 @@ bookController.update = async (req,res) => {
             }
         })
         let final = await bookToUpdate.update(req.body)
-        res.json({final})
+        res.json(final)
     } catch (error) {
         res.json({error})
     }

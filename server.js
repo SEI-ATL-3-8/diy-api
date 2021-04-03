@@ -9,8 +9,10 @@ console.log(`Listening on port ${PORT}`)
 routesReport.print()
 })
 
-const bookRoutes = require('./routes/bookRoutes');
 
+const cors = require('cors')
+const bookRoutes = require('./routes/bookRoutes');
+app.use(cors())
 app.use('/books', bookRoutes)
 
 // const getAllBooks = async (req,res) => {
