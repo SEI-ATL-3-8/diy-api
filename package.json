@@ -1,0 +1,27 @@
+{
+  "name": "diy-api",
+  "version": "1.0.0",
+  "description": "Your mission is to recreate the API that you interacted with for your Unit 1 group project!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SEI-ATL-3-8/diy-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SEI-ATL-3-8/diy-api/issues"
+  },
+  "homepage": "https://github.com/SEI-ATL-3-8/diy-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "rowdy-logger": "^1.0.2",
+    "sequelize": "^6.6.2"
+  }
+}
