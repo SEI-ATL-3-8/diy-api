@@ -5,7 +5,7 @@ const wineControllers = {}
 wineControllers.getAll = async (req, res) => {
     try {
         const wines = await models.wine.findAll()
-        res.json({wines})
+        res.json(wines)
     } catch (error) {
         res.json({error})
     }
@@ -18,7 +18,7 @@ wineControllers.getOne = async (req, res) => {
                 id: req.params.id
             }
         })
-        res.json({wine})
+        res.json(wine)
     } catch (error) {
         res.json({error})
     }
@@ -36,7 +36,7 @@ wineControllers.postNew = async (req, res) => {
             picture: req.body.picture,
             price: req.body.price
         })
-        res.json({newWine})
+        res.json(newWine)
     } catch (error) {
         res.json({error})
     }
@@ -51,7 +51,7 @@ wineControllers.putOld = async (req, res) => {
             }
         })
         const updateDone = await whichWine.update(newDetails)
-        res.json({updateDone})
+        res.json(updateDone)
     } catch (error) {
         res.json({error})
     }
@@ -64,7 +64,7 @@ wineControllers.deleteWine = async (req, res) => {
                 id: req.params.id
             }
         })
-        res.json({whichWineDeleted})
+        res.json(whichWineDeleted)
     } catch (error) {
         res.json({error})
     }
