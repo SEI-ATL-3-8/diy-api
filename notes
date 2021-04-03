@@ -1,0 +1,14 @@
+sequelize model:generate --name=wine --attributes name:string,year:integer,grapes:string,country:string,region:string,description:string,picture:string,price:integer
+
+
+
+{
+    "name": "The Lovely",
+    "year": "2021",
+    "grapes": "White",
+    "country": "Essos",
+    "region": "Lys",
+    "description": "A beautiful white wine from Lys, one of the Free Cities. Tastes like love and freedom.",
+    "picture": "https://images.vivino.com/thumbs/TT3QaO7RQWez3FudzdYl1w_pb_x600.png",
+    "price": "280"
+}
