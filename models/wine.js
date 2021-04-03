@@ -14,14 +14,54 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   wine.init({
-    name: DataTypes.TEXT,
-    year: DataTypes.INTEGER,
-    grapes: DataTypes.TEXT,
-    country: DataTypes.TEXT,
-    region: DataTypes.TEXT,
-    description: DataTypes.TEXT,
-    picture: DataTypes.TEXT,
-    price: DataTypes.INTEGER
+    name: {
+      type:DataTypes.TEXT, allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    year: {
+      type:DataTypes.INTEGER,
+      validate:{
+        isNumeric:true
+      }
+      },
+    grapes: {
+      type:DataTypes.TEXT, allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    country: {
+      type:DataTypes.TEXT, allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    region: {
+      type:DataTypes.TEXT, allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    description: {
+      type:DataTypes.TEXT, allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    picture: {
+      type:DataTypes.TEXT,
+      validate:{
+        isUrl:true
+      }
+    },
+    price: {
+      type:DataTypes.INTEGER,
+      validate:{
+        isNumeric:true
+      }
+    }
   }, {
     sequelize,
     modelName: 'wine',
