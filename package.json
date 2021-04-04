@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js"
-
   },
   "repository": {
     "type": "git",
@@ -21,6 +20,7 @@
   },
   "homepage": "https://github.com/SEI-ATL-3-8/diy-api#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "exppress": "^0.0.1-security",
     "express": "^4.17.1",
     "pg": "^8.5.1",
