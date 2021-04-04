@@ -1,10 +1,10 @@
-const models = require('../models')
+const {book} = require('../models')
 
 const bookController = {}
 
-bookController.getAllBooksgetAllBooks = async (req, res) => {
+bookController.getAllBooks = async (req, res) => {
     try{
-        let books = await models.book.findAll()
+        let books = await book.findAll()
         res.json({books})
     }catch (error) {
         res.json({error})
@@ -13,7 +13,7 @@ bookController.getAllBooksgetAllBooks = async (req, res) => {
 
 bookController.getBook = async (req, res) => {
     try{
-        let oneBook = await models.book.findOne({
+        let oneBook = await book.findOne({
             where: {
                 id: req.params.id
             }
@@ -26,7 +26,7 @@ bookController.getBook = async (req, res) => {
 
 bookController.createBook = async (req, res) => {
     try{
-        let newBook = await models.book.create({
+        let newBook = await book.create({
             title: req.body.title,
             author: req.body.author,
             release_date: req.body.release_date,
@@ -41,7 +41,7 @@ bookController.createBook = async (req, res) => {
 bookController.updateBook = async (req, res) => {
     try{
         let update = req.body
-        let updatedBook = await models.book.findOne({
+        let updatedBook = await book.findOne({
             where: {
                 id:req.params.id
             }
@@ -55,7 +55,7 @@ bookController.updateBook = async (req, res) => {
 
 bookController.deleteBook = async (req, res) => {
     try{
-        let destroyedBook = await models.book.destroy({
+        let destroyedBook = await book.destroy({
             where: {
                 id: req.params.id
             }
