@@ -12,7 +12,8 @@ console.log(`Listening on port ${PORT}`)
 routesReport.print()
 })
 
-
+const cors = require('cors');
 const bookRoutes = require('./routes/bookRoutes');
 
 app.use('/books', bookRoutes);
+app.use(cors())
