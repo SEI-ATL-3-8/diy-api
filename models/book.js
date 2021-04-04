@@ -14,10 +14,23 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   book.init({
-    title: DataTypes.TEXT,
-    author: DataTypes.TEXT,
-    release_date: DataTypes.TEXT,
-    image: DataTypes.TEXT
+    title: {
+      type:DataTypes.TEXT, allowNull:false,
+      validate: {
+        notNull: true,
+      }
+    },
+    author: {
+      type:DataTypes.TEXT,
+      release_date: DataTypes.TEXT,
+      validate: {
+        isNumeric: true,
+      }
+    },
+    image: {
+      type:DataTypes.TEXT,
+
+    } 
   }, {
     sequelize,
     modelName: 'book',
