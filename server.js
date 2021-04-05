@@ -14,10 +14,10 @@ const models = require('./models')
 
 const getAllPeople = async (req,res) => {
   try {
-  let people = await models.people.findAll()
+    let people = await models.people.findAll()
   res.json({people})
   } catch (error) {
-  res.json({error})
+  res.json('cant get all')
   }
 }
 
@@ -25,8 +25,8 @@ const getOnePerson = async (req,res) => {
   try {
     let person = await models.people.findOne({
     where: {
-        id: req.params.id 
-    }
+      id: req.params.id 
+      }
     })
       res.json({person}) 
     } catch (error) {
@@ -36,11 +36,15 @@ const getOnePerson = async (req,res) => {
 
 const addPerson = async (req,res) => {
 try {
-  let newPerson = await models.person.create({
+  let newPerson = await models.people.create({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    causeOfDeath: req.body.causeOfDeath
+    causeOfDeath: req.body.causeOfDeath,
+    createdAt: req.body.createdAt,
+    updatedAt: req.body.updatedAt
   })
+  
+  
     res.json({newPerson})
   } catch (error) {
     res.json({error})
@@ -49,11 +53,11 @@ try {
 
 const updatePerson = async (req,res) => {
   try {
-      let whatToUpdate = req.body
-    let personToUpdate = await models.people.findOne({
-      where:{
+    let whatToUpdate = req.body
+      let personToUpdate = await models.people.findOne({
+        where:{
           id: req.params.id
-      }
+        }
     })
     let actuallyUpdate = await personToUpdate.update(whatToUpdate)
     res.json({actuallyUpdate})

@@ -13,30 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-
-  
   people.init({
-    firstName: {
-      type: DataTypes.STRING, allowNull: false,
-      validate: {
-        notNull: true,
-        notEmpty: true
-      }
-    },
-    lastName: {
-      type: DataTypes.STRING, allowNull: false,
-      validate: {
-        notNull: true,
-        notEmpty: true
-      }
-    },
-    causeOfDeath: {
-      type: DataTypes.STRING, allowNull: false,
-      validate: {
-        notNull: true,
-        notEmpty: true
-      }
-    },
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    causeOfDeath: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'people',
