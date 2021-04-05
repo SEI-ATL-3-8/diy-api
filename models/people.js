@@ -14,9 +14,27 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   people.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    causeOfDeath: DataTypes.STRING
+    firstName: {
+      type: DataTypes.STRING, allowNull: false,
+      validate: {
+        notNull: true,
+        notEmpty: true
+      }
+    },
+    lastName: {
+      type: DataTypes.STRING, allowNull: false,
+      validate: {
+        notNull: true,
+        notEmpty: true
+      }
+    },
+    causeOfDeath: {
+      type: DataTypes.STRING, allowNull: false,
+      validate: {
+        notNull: true,
+        notEmpty: true
+      }
+    },
   }, {
     sequelize,
     modelName: 'people',
