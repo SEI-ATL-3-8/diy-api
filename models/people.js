@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
+
+  
   people.init({
     firstName: {
       type: DataTypes.STRING, allowNull: false,
