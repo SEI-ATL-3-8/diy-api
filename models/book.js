@@ -1,4 +1,8 @@
 'use strict';
+
+// sequelize op
+const Op = require('sequelize').Op;
+
 const {
   Model
 } = require('sequelize');
@@ -14,10 +18,27 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   book.init({
-    title: DataTypes.STRING,
-    author: DataTypes.STRING,
+    title: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+      validate: {
+        isNull: true
+      },
+    },
+    author: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isNull: true
+      }
+    },
     releaseDate: DataTypes.STRING,
-    image: DataTypes.STRING
+    image: {
+      type: DataTypes.STRING,
+      validate: {
+        isUrl: true
+      }
+    }
   }, {
     sequelize,
     modelName: 'book',

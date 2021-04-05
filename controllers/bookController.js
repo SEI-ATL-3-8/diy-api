@@ -63,7 +63,36 @@ bookController.create = async (req, res) =>
         // display new book
         res.json(book);
     } catch (error) {
-        res.json(error);
+        // errors array
+        let errors = [];
+        // add every error to errors array
+        error.errors.forEach(error => {
+            // check if its a true validation error or cannot create due to a validation error
+            if (error.message !== `Cannot create property 'ignore_whitespace' on boolean 'true'`)
+            {
+                // check which validation was tripped and add appropriate error message to errors array
+                switch (error.path)
+                {
+                    case "title":
+                        {
+                            errors.push('You must provide a title for the book');
+                            break;
+                        }
+                    case "author":
+                        {
+                            errors.push('You must provide an author for the book');
+                            break;
+                        }
+                    case "image":
+                        {
+                            errors.push('You must provide a valid URL for the book cover');
+                            break;
+                        }
+                }
+            }
+        });
+        // display all errors
+        res.json(errors);
     }
 }
 
