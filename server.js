@@ -68,7 +68,7 @@ const updateWine = async (req,res) => {
 
 const deleteWine = async (req,res) => {
     try {
-        let wineToDelete = await models.wine.destry({
+        let wineToDelete = await models.wine.destroy({
             where: {
                 id: req.params.id
             }
